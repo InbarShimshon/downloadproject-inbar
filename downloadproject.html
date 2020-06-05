@@ -2,69 +2,77 @@
 
 <html>
      <head>
+        <script src="https://code.angularjs.org/1.3.8/angular.min.js"></script>
+        <script>
+            var mainMod = angular.module('MainApp', []);
+            mainMod.controller('MainCtrl', function ($scope) {
+                $scope.text = '';
+            });
+        </script>
 
      <title style="color:black"> downloadproject.html</title>
      <meta name = "description" content = "autodownloadproject"/>
      <meta name = "keywords" content = "inbar, download, project"/>
      <meta name = "author" content = "Inbar Shimshon"/>
-	     
       <link rel="stylesheet" type="text/css" href="style.css"/> 
 
      </head>
 
-			<body>
-				<body style="background-color:lightgray">
+
+       <body ng-app='MainApp'style="background-color:lightgray">
 
 				 <center>
 				    		 <H2> Download Project - Inbar Shimshon </H2>
 				 </center>
 		<div>
 			
-			   <center>
-				   
-
-				   <script>
-						function validateForm() {
-  							var x = document.forms["myForm"]["fname"].value;
-  							if (x == "" ) {
-    						alert("x.x.x format must be filled in");
-    						return false;
-  						}
-					}
-					</script>
-
-
-					<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
-					  Version (e.g. 7.7.0): <input type="text" name="fname">
-					  <input type="submit" value="Submit">
-					</form>
-
-				   
-      
-			   </center>
-		</div>
-
-
-
-	    <div>
-	    
-			<h4>ElasticSearch - MacOS</h4>
-			<p> curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.0-darwin-x86_64.tar.gz </p>
-            <p> tar -xvf elasticsearch-7.7.0-darwin-x86_64.tar.gz </p>
     
-		</div>
-		
-		    <div>
-			<h4>Kibana - MacOS</h4>
-			<p> curl -O https://artifacts.elastic.co/downloads/kibana/kibana-7.7.1-darwin-x86_64.tar.gz</p>
-            <p> tar -xzf kibana-7.7.0-darwin-x86_64.tar.gz </p>
- 
-		</div>
-	
-	
-			
-			</body>
+    <center
+        <div ng-controller='MainCtrl'>
+         
+            Download Version
+            <input type='text' ng-model='text' value=7.7.0  placeholder="7.7.0">
+             <br></br>
+    
+          
+          		
+        <div align="left">
+        	<h4>ElasticSearch - MacOS</h4>
+                <p> curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-{{text}}-darwin-x86_64.tar.gz </p>
+                <p> tar -xvf elasticsearch-{{text}}-darwin-x86_64.tar.gz </p>    
+  
+          
+     
+        <div align="left"> 
+               <h4>Kibana - MacOS</h4> 
+                   <p> curl -O https://artifacts.elastic.co/downloads/kibana/kibana-{{text}}-darwin-x86_64.tar.gz</p>
+                   <p> tar -xzf kibana-{{text}}-darwin-x86_64.tar.gz </p>
+                </div>
 
+        <div align="left"> 
+               <h4>Filebeat - MacOS</h4> 
+                   <p> curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-{{text}}-darwin-x86_64.tar.gz</p>
+                   <p> tar xzvf filebeat-{{text}}-darwin-x86_64.tar.gz </p>
+                </div>
+
+        <div align="left"> 
+               <h4>Logstash - MacOS</h4> 
+                   <p> curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-{{text}}.tar.gz</p>
+                   <p> tar -xzvf logstash-{{text}}.tar.gz </p>
+
+
+
+                </div>
+
+
+
+        </div>
+        
+        
+        
+        
+        </center>
+  
 
 
 
