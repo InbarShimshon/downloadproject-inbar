@@ -17,34 +17,50 @@
 
 				 <center>
 				    		 <H2> Download Project - Inbar Shimshon </H2>
-				 </center
+				 </center>
 		<div>
 			
 			   <center>
 				   
-				   
+
 				   <script>
-					   <form>
-						<input type="text">
-				           </form>
-                                   </script>
-				   
-				 
-		 		   
+						function validateForm() {
+  							var x = document.forms["myForm"]["fname"].value;
+  							if (x == "" ) {
+    						alert("x.x.x format must be filled in");
+    						return false;
+  						}
+					}
+					</script>
+
+
+					<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+					  Version (e.g. 7.7.0): <input type="text" name="fname">
+					  <input type="submit" value="Submit">
+					</form>
+
 				   
       
 			   </center>
 		</div>
 
-				
-		 <div>
-		 		<H4>Elasticsearch for MacOs </H4>
-					
-		      <p> curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.1-darwin-x86_64.tar.gz </p>
-				    
-			   <p> tar -xvf elasticsearch-7.7.1-darwin-x86_64.tar.gz </p>
 
- 		</div>	   
+
+	    <div>
+	    
+			<h4>ElasticSearch - MacOS</h4>
+			<p> curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.7.0-darwin-x86_64.tar.gz </p>
+            <p> tar -xvf elasticsearch-7.7.0-darwin-x86_64.tar.gz </p>
+    
+		</div>
+		
+		    <div>
+			<h4>Kibana - MacOS</h4>
+			<p> curl -O https://artifacts.elastic.co/downloads/kibana/kibana-7.7.1-darwin-x86_64.tar.gz</p>
+            <p> tar -xzf kibana-7.7.0-darwin-x86_64.tar.gz </p>
+ 
+		</div>
+	
 	
 			
 			</body>
