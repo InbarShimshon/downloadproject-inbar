@@ -9,6 +9,34 @@
                 $scope.text = '';
             });
         </script>
+ 
+ <script>
+ 
+ window.onload = function () {
+  // Get all the elements that match the selector as arrays
+  var copyTextareaBtn = Array.prototype.slice.call(document.querySelectorAll('.js-textareacopybtn'));
+  var copyTextarea = Array.prototype.slice.call(document.querySelectorAll('.js-copytextarea'));
+
+  // Loop through the button array and set up event handlers for each element
+  copyTextareaBtn.forEach(function(btn, idx){
+  
+    btn.addEventListener("click", function(){
+    
+      // Get the textarea who's index matches the index of the button
+      copyTextarea[idx].select();
+
+      try {
+        var msg = document.execCommand('copy') ? 'successful' : 'unsuccessful';
+        console.log('Copying text command was ' + msg);
+      } catch (err) {
+        console.log('Whoops, unable to copy');
+      } 
+      
+    });
+    
+  });
+}
+</script>
 
      <title style="color:black"> downloadproject.html</title>
      <meta name = "description" content = "autodownloadproject"/>
@@ -22,7 +50,9 @@
        <body ng-app='MainApp'style="background-color:lightgray">
 
 				 <center>
-				    		 <H2> Download Project - Inbar Shimshon </H2>
+				    		 <H2> Download Project  </H2>
+				    		 <H4>by: Inbar Shimshon </H4>
+				    		
 				 </center>
 		<div>
 			
@@ -34,34 +64,47 @@
             <input type='text' ng-model='text' value=7.7.0  placeholder="7.7.0">
              <br></br>
     
-          
+       
           		
         <div align="left">
         	<h4>ElasticSearch - MacOS</h4>
-                <p> curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-{{text}}-darwin-x86_64.tar.gz </p>
-                <p> tar -xvf elasticsearch-{{text}}-darwin-x86_64.tar.gz </p>    
-  
+<textarea class="js-copytextarea" readonly="readonly" style="width:70%;"rows="2">
+curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-{{text}}-darwin-x86_64.tar.gz
+tar -xvf elasticsearch-{{text}}-darwin-x86_64.tar.gz   
+  </textarea class>
+     <button class="js-textareacopybtn">Copy</button>
+          </div>
           
      
         <div align="left"> 
-               <h4>Kibana - MacOS</h4> 
-                   <p> curl -O https://artifacts.elastic.co/downloads/kibana/kibana-{{text}}-darwin-x86_64.tar.gz</p>
-                   <p> tar -xzf kibana-{{text}}-darwin-x86_64.tar.gz </p>
+               <h4>Kibana - MacOS</h4>
+<textarea class="js-copytextarea" readonly="readonly" style="width:70%;" rows="2">
+curl -O https://artifacts.elastic.co/downloads/kibana/kibana-{{text}}-darwin-x86_64.tar.gz
+tar -xzf kibana-{{text}}-darwin-x86_64.tar.gz
+</textarea class>
+     <button class="js-textareacopybtn">Copy</button>
                 </div>
 
-        <div align="left"> 
-               <h4>Filebeat - MacOS</h4> 
-                   <p> curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-{{text}}-darwin-x86_64.tar.gz</p>
-                   <p> tar xzvf filebeat-{{text}}-darwin-x86_64.tar.gz </p>
-                </div>
+
 
         <div align="left"> 
-               <h4>Logstash - MacOS</h4> 
-                   <p> curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-{{text}}.tar.gz</p>
-                   <p> tar -xzvf logstash-{{text}}.tar.gz </p>
-
-
-
+               <h4>Logstash - MacOS</h4>
+<textarea class="js-copytextarea" readonly="readonly" style="width:70%;" rows="2">
+curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-{{text}}.tar.gz
+tar -xzvf logstash-{{text}}.tar.gz           
+</textarea class>
+     <button class="js-textareacopybtn">Copy</button>
+</div>
+                
+                
+                
+                        <div align="left"> 
+               <h4>Filebeat - MacOS</h4>
+<textarea class="js-copytextarea" readonly="readonly" style="width:70%;" rows="2">
+curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-{{text}}-darwin-x86_64.tar.gz
+tar xzvf filebeat-{{text}}-darwin-x86_64.tar.gz
+</textarea class>
+     <button class="js-textareacopybtn">Copy</button>
                 </div>
 
 
